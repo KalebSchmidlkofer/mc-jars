@@ -33,6 +33,10 @@ SoftwareTypes = [
   ('Travertine', 'Travertine')
 ]
 
+def get_upload_to(instance, filename):
+    # Use the 'software' field of the instance to create the upload path
+    return path.join('uploads', instance.type, instance.software, filename)
+
 class jars(models.Model):
   title = models.CharField(max_length=50, unique=True, default=None)
   type=models.CharField(choices=Types, max_length=50)
@@ -40,7 +44,7 @@ class jars(models.Model):
   software=models.CharField(choices=SoftwareTypes, max_length=50)
   buildnum=models.IntegerField()
   posted=models.BooleanField(default=True)
-  file=models.FileField(upload_to=f'')
+  file = models.FileField(upload_to=get_upload_to)
   date_added=models.DateTimeField(auto_now=False, auto_now_add=True)
 
 
