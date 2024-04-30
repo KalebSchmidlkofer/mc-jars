@@ -20,5 +20,4 @@ from . import views
 
 urlpatterns = [
     path('', views.go_home, name='home'),
-
 ]
