@@ -39,7 +39,7 @@ def get_upload_to(instance, filename):
     return path.join('uploads', instance.type, instance.software, filename)
 
 
-class jars(models.Model):
+class jar(models.Model):
   title = models.CharField(max_length=50, unique=True, default=None)
   type=models.CharField(choices=Types, max_length=50)
   version=models.CharField(max_length=50)
@@ -49,6 +49,7 @@ class jars(models.Model):
   experimental=models.BooleanField(default=False)
   file = models.FileField(upload_to=get_upload_to)
   file_size = models.CharField(null=True, blank=True, editable=False, max_length=50)
+  file_hash=models.CharField(max_length=70, editable=False, null=True)
   date_added=models.DateTimeField(auto_now=False, auto_now_add=True)
 
   def save(self, *args, **kwargs):
@@ -69,31 +70,31 @@ class jars(models.Model):
     return self.title
 
 class servers(models.Model):
-  type=models.ForeignKey(jars, on_delete=models.CASCADE, related_name='Server')
+  type=models.ForeignKey(jar, on_delete=models.CASCADE, related_name='Server')
   def __str__(self):
     return self.type.title
 
 
 class bedrock(models.Model):
-  type=models.ForeignKey(jars, on_delete=models.CASCADE, related_name='Bedrock')
+  type=models.ForeignKey(jar, on_delete=models.CASCADE, related_name='Bedrock')
   
   def __str__(self):
     return self.type.title
 
 class modded(models.Model):
-  type=models.ForeignKey(jars, on_delete=models.CASCADE, related_name='Modded')
+  type=models.ForeignKey(jar, on_delete=models.CASCADE, related_name='Modded')
   
   def __str__(self):
     return self.type.title
 
 class vanilla(models.Model):
-  type=models.ForeignKey(jars, on_delete=models.CASCADE, related_name='Vanilla')
+  type=models.ForeignKey(jar, on_delete=models.CASCADE, related_name='Vanilla')
   
   def __str__(self):
     return self.type.title
 
 class proxies(models.Model):
-  type=models.ForeignKey(jars, on_delete=models.CASCADE, related_name='Proxy')
+  type=models.ForeignKey(jar, on_delete=models.CASCADE, related_name='Proxy')
   
   def __str__(self):
     return self.type.title

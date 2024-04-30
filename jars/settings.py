@@ -27,11 +27,15 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+TEMPLATES_DIRS = os.path.join(BASE_DIR,'templates')
 
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
+    'material',
+    'material.admin',
+    'django_admin_env_notice',
+    # 'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -66,6 +70,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                "django_admin_env_notice.context_processors.from_settings",
             ],
         },
     },
@@ -126,3 +131,39 @@ STATIC_ROOT = os.path.join(BASE_DIR,'static')
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+ENVIRONMENT_NAME = 'DEVELOPMENT'
+ENVIRONMENT_COLOR = 'red'
+OTP_TOTP_ISSUER = 'mc-jars'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = str(os.getenv('EMAIL_USER'))
+EMAIL_HOST_PASSWORD = str(os.getenv('EMAIL_PASSWORD'))
+
+
+
+MATERIAL_ADMIN_SITE = {
+    'HEADER':  ('Mc-jar'),  # Admin site header
+    'TITLE':  ('Mc-jar'),  # Admin site title
+    'FAVICON':  'path/to/favicon',  # Admin site favicon (path to static should be specified)
+    'MAIN_BG_COLOR':  '#000000',  # Admin site main color, css color should be specified
+    'MAIN_HOVER_COLOR':  '#F0F8FF',  # Admin site main hover color, css color should be specified
+    'PROFILE_PICTURE':  'path/to/image',  # Admin site profile picture (path to static should be specified)
+    'PROFILE_BG':  'path/to/image',  # Admin site profile background (path to static should be specified)
+    'LOGIN_LOGO':  'path/to/image',  # Admin site logo on login page (path to static should be specified)
+    'LOGOUT_BG':  'path/to/image',  # Admin site background on login/logout pages (path to static should be specified)
+    'SHOW_THEMES':  True,  #  Show default admin themes button
+    'TRAY_REVERSE': True,  # Hide object-tools and additional-submit-line by default
+    'NAVBAR_REVERSE': True,  # Hide side navbar by default
+    'SHOW_COUNTS': True, # Show instances counts for each model
+    'APP_ICONS': {  # Set icons for applications(lowercase), including 3rd party apps, {'application_name': 'material_icon_name', ...}
+        'sites': 'send',
+    },
+    'MODEL_ICONS': {  # Set icons for models(lowercase), including 3rd party models, {'model_name': 'material_icon_name', ...}
+        'site': 'contact_mail',
+    }
+}
