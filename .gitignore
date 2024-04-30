@@ -3,3 +3,4 @@ __pycache__
 .vscode
 uploads
 db.sqlite3
+activate
