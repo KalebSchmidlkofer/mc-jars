@@ -29,7 +29,7 @@ to create a better alternative.
 ## The Plan
 
 In order for this to be a good replacement for serverjars, it need to offer
-the same features and ease-of use in order to do that I need a few simple things
+the same features and ease-of use. In order to do that I need a few simple things
 namely
 
 - [ ]api
