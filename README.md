@@ -29,9 +29,9 @@ to create a better alternative.
 ## The Plan
 
 In order for this to be a good replacement for serverjars, it need to offer
-the same features and ease-of use. In order to do that I need a few simple things
+the same features and ease-of use. In order to do that I need a few simple things.
 namely
 
-- [ ]api
-- [ ]Good looking Frontend
-- [ ]Fast Effecient and Automated way to get new server jars uploaded to the website
+- [ ] api
+- [ ] Good looking Frontend
+- [ ] Fast, Efficient and Automated way to get new server jars uploaded to the website
