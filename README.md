@@ -23,8 +23,8 @@ it properly. Naturally the website started to break, slowly but
 surely, and now the resembles a ghost of it's former self.
 That being said, I knew their had to be a better way, a maintainable
 way. So I decided to use the one skill I have spent the last 5 years
-honing, So I decided to use one of Python's greatest web libraries django
-to create a better alternative.
+honing, and after a long thought-out process, I decided to use one of 
+Python's greatest web libraries django to create a better alternative.
 
 ## The Plan
 
