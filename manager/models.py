@@ -1,6 +1,8 @@
 from django.db import models
 import hashlib
 from os import path
+from jars.settings import MEDIA_ROOT
+
 Types = [
   ('Servers', 'Servers'),
   ('Proxies', 'Proxies'),
@@ -36,8 +38,18 @@ SoftwareTypes = [
 
 
 def get_upload_to(instance, filename):
-    # Use the 'software' field of the instance to create the upload path
-    return path.join('uploads', instance.type, instance.software, filename)
+  # Ensure that only allowed characters are included in the filename
+  filename = path.basename(filename)
+  
+  # Construct the upload path using safe directory joining method
+  upload_path = path.join(
+    instance.type,
+    instance.software,
+    filename
+  )
+  
+  # Return the sanitized upload path
+  return upload_path
 
 
 class jar(models.Model):
@@ -50,7 +62,7 @@ class jar(models.Model):
   experimental=models.BooleanField(default=False)
   file = models.FileField(upload_to=get_upload_to)
   file_size = models.CharField(null=True, blank=True, editable=False, max_length=50)
-  file_hash=models.CharField(max_length=200, editable=False, null=True)
+  file_hash=models.CharField(max_length=200, editable=False, blank=True, null=True)
   date_added=models.DateTimeField(auto_now=False, auto_now_add=True)
 
   def save(self, *args, **kwargs):
@@ -65,7 +77,7 @@ class jar(models.Model):
         self.file_size = f"{size / (1024 * 1024):.2f} MB"
       else:
         self.file_size = f"{size / (1024 * 1024 * 1024):.2f} GB"
-    self.file_hash=hashlib.md5(open(self.file, 'rb').read()).hexdigest()
+      self.file_hash=hashlib.md5(open(self.file.path, 'rb').read()).hexdigest()
     super().save(*args, **kwargs)
   
   def __str__(self):
