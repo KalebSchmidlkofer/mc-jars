@@ -1,4 +1,5 @@
 from django.db import models
+import hashlib
 from os import path
 Types = [
   ('Servers', 'Servers'),
@@ -44,12 +45,12 @@ class jar(models.Model):
   type=models.CharField(choices=Types, max_length=50)
   version=models.CharField(max_length=50)
   software=models.CharField(choices=SoftwareTypes, max_length=50)
-  buildnum=models.IntegerField()
+  buildnum=models.IntegerField(default=0)
   posted=models.BooleanField(default=True)
   experimental=models.BooleanField(default=False)
   file = models.FileField(upload_to=get_upload_to)
   file_size = models.CharField(null=True, blank=True, editable=False, max_length=50)
-  file_hash=models.CharField(max_length=70, editable=False, null=True)
+  file_hash=models.CharField(max_length=200, editable=False, null=True)
   date_added=models.DateTimeField(auto_now=False, auto_now_add=True)
 
   def save(self, *args, **kwargs):
@@ -64,6 +65,7 @@ class jar(models.Model):
         self.file_size = f"{size / (1024 * 1024):.2f} MB"
       else:
         self.file_size = f"{size / (1024 * 1024 * 1024):.2f} GB"
+    self.file_hash=hashlib.md5(open(self.file, 'rb').read()).hexdigest()
     super().save(*args, **kwargs)
   
   def __str__(self):
