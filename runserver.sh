@@ -1,4 +1,4 @@
 #!/bin/bash
-#
-#
-uvicorn jars.asgi:application --host 0.0.0.0 --port 8000
+
+uvicorn jars.asgi:application --reload
+# uvicorn jars.asgi:application --host 0.0.0.0 --port 8000
