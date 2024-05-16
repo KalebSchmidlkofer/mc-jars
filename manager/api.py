@@ -15,6 +15,8 @@ async def read_root():
 async def uploadServer(
   file: UploadFile,
   version: str,
+  project: str,
+
   build: int = 0,
 
    ):
