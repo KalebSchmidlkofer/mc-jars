@@ -11,12 +11,14 @@ import os
 import django
 from django.core.asgi import get_asgi_application
 from fastapi import FastAPI
-from manager.api import app as fastapi_app
 
 from django.core.asgi import get_asgi_application
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'jars.settings')
+print("DJANGO_SETTINGS_MODULE:", os.getenv('DJANGO_SETTINGS_MODULE'))
 django.setup()
+from manager.api import app as fastapi_app
+
 django_app = get_asgi_application()
 
 asgi_app = FastAPI()
