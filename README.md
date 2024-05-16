@@ -34,7 +34,7 @@ namely
 
 - [ ] api
   - [X] FastAPI setup
-  - [ ] Upload api
+  - [X] Upload api
   - [ ] Public api
 - [ ] Good looking Frontend
 - [ ] Fast, Efficient and Automated way to get new server jars uploaded to the website
