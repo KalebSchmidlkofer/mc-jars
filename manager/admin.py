@@ -4,9 +4,9 @@ from .models import jar, servers, bedrock, modded, vanilla, proxies
 
 class jar_admin(admin.ModelAdmin):
   verbose_name='Jar'
-  list_display = ('version', 'software', 'file_size', 'file_hash', 'date_added')
+  list_display = ('version', 'project', 'file_size', 'file_hash', 'date_added')
   # search_fields = ('version', 'software')
-  list_filter = ('version', 'software')
+  list_filter = ('version', 'software', 'project')
 
 class servers_admin(admin.ModelAdmin):
   verbose_name='Server'
