@@ -8,7 +8,8 @@ Types = [
   ('Proxies', 'Proxies'),
   ('Modded', 'Modded'),
   ('Vanilla', 'Vanilla'),
-  ('Bedrock', 'Bedrock')
+  ('Bedrock', 'Bedrock'),
+  ('Misc', 'Misc')
 ]
 
 SoftwareTypes = [
@@ -49,6 +50,7 @@ class jar(models.Model):
   buildnum=models.IntegerField(default=0)
   posted=models.BooleanField(default=True)
   experimental=models.BooleanField(default=False)
+  
   file = models.FileField(upload_to=get_upload_to)
   file_size = models.CharField(null=True, blank=True, editable=False, max_length=50)
   file_hash=models.CharField(max_length=200, editable=False, blank=True, null=True)
@@ -114,6 +116,14 @@ class proxies(models.Model):
     return self.project.title
   class Meta:
     verbose_name_plural="proxies"
+
+class other(models.Model):
+  project=models.ForeignKey(jar, on_delete=models.CASCADE, related_name='Misc')
+  
+  def __str__(self):
+    return self.project.title
+  class Meta:
+    verbose_name_plural="misc"
 
 
 def upload_to(instance: jar, filename):

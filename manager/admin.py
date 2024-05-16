@@ -11,13 +11,34 @@ class jar_admin(admin.ModelAdmin):
 class servers_admin(admin.ModelAdmin):
   verbose_name='Server'
   plural_name='Servers'
+  list_filter = ('version', 'software')
 
+
+class modded_admin(admin.ModelAdmin):
+  verbose_name='Modded'
+  plural_name='Modded'
+  list_filter = ('version', 'software')
+
+class bedrock_admin(admin.ModelAdmin):
+  verbose_name='Bedrock'
+  plural_name='Bedrock'
+  list_filter = ('version', 'software')
+
+class vanilla_admin(admin.ModelAdmin):
+  verbose_name='vanilla'
+  plural_name='vanilla'
+  list_filter = ('version', 'software')
+
+class proxies_admin(admin.ModelAdmin):
+  verbose_name='Proxy'
+  plural_name='proxies'
+  list_filter = ('version', 'software')
 
 
 admin.site.register(jar, jar_admin)
 
 admin.site.register(servers, servers_admin)
-admin.site.register(bedrock)
-admin.site.register(modded)
-admin.site.register(vanilla)
-admin.site.register(proxies)
+admin.site.register(bedrock, bedrock_admin)
+admin.site.register(modded, modded_admin)
+admin.site.register(vanilla, vanilla_admin)
+admin.site.register(proxies, proxies_admin)
