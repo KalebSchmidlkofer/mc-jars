@@ -14,28 +14,28 @@ Types = [
 
 SoftwareTypes = [
   ('Vanilla', 'Vanilla'),
-  ('Paper', 'Paper'),
-  ('Purpur', 'Purpur'),
-  ('Purformance', 'Purformance'),
-  ('Spigot', 'Spigot'),
-  ('CraftBukkit', 'CraftBukkit'),
-  ('Tuinity', 'Tuinity'),
-  ('Airplane', 'Airplane'),
-  ('Folia', 'Folia'),
-  ('SpongeVanilla', 'SpongeVanilla'),
-  ('Glowstone', 'Glowstone'),
-  ('Fabric', 'Fabric'),
-  ('Forge', 'Forge'),
-  ('Crucible', 'Crucible'),
-  ('Cardboard', 'Cardboard'),
-  ('Arclight', 'Arclight'),
-  ('Mohist', 'Mohist'),
-  ('Magma', 'Magma'),
-  ('SpongeForge', 'SpongeForge'),
-  ('Waterfall', 'Waterfall'),
-  ('Velocity', 'Velocity'),
-  ('Bungeecord', 'Bungeecord'),
-  ('Travertine', 'Travertine')
+  ('Paper', 'Servers'),
+  ('Purpur', 'Servers'),
+  ('Purformance', 'Servers'),
+  ('Spigot', 'Servers'),
+  ('CraftBukkit', 'Servers'),
+  ('Tuinity', 'Proxies'),
+  ('Airplane', 'Servers'),
+  ('Folia', 'Servers'),
+  ('SpongeVanilla', 'Modded'),
+  ('Glowstone', 'Servers'),
+  ('Fabric', 'Modded'),
+  ('Forge', 'Modded'),
+  ('Crucible', 'Misc'),
+  ('Cardboard', 'Misc'),
+  ('Arclight', 'Misc'),
+  ('Mohist', 'Misc'),
+  ('Magma', 'Misc'),
+  ('SpongeForge', 'Misc'),
+  ('Waterfall', 'Proxies'),
+  ('Velocity', 'Proxies'),
+  ('Bungeecord', 'Proxies'),
+  ('Travertine', 'Proxies')
 ]
 
 
@@ -50,7 +50,7 @@ class jar(models.Model):
   buildnum=models.IntegerField(default=0)
   posted=models.BooleanField(default=True)
   experimental=models.BooleanField(default=False)
-  
+
   file = models.FileField(upload_to=get_upload_to)
   file_size = models.CharField(null=True, blank=True, editable=False, max_length=50)
   file_hash=models.CharField(max_length=200, editable=False, blank=True, null=True)
