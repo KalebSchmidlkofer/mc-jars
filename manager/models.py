@@ -15,6 +15,7 @@ SoftwareTypes = [
   ('Vanilla', 'Vanilla'),
   ('Paper', 'Paper'),
   ('Purpur', 'Purpur'),
+  ('Purformance', 'Purformance'),
   ('Spigot', 'Spigot'),
   ('CraftBukkit', 'CraftBukkit'),
   ('Tuinity', 'Tuinity'),
