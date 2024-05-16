@@ -14,28 +14,28 @@ Types = [
 
 SoftwareTypes = [
   ('Vanilla', 'Vanilla'),
-  ('Paper', 'Servers'),
-  ('Purpur', 'Servers'),
-  ('Purformance', 'Servers'),
-  ('Spigot', 'Servers'),
-  ('CraftBukkit', 'Servers'),
-  ('Tuinity', 'Proxies'),
-  ('Airplane', 'Servers'),
-  ('Folia', 'Servers'),
-  ('SpongeVanilla', 'Modded'),
-  ('Glowstone', 'Servers'),
-  ('Fabric', 'Modded'),
-  ('Forge', 'Modded'),
-  ('Crucible', 'Misc'),
-  ('Cardboard', 'Misc'),
-  ('Arclight', 'Misc'),
-  ('Mohist', 'Misc'),
-  ('Magma', 'Misc'),
-  ('SpongeForge', 'Misc'),
-  ('Waterfall', 'Proxies'),
-  ('Velocity', 'Proxies'),
-  ('Bungeecord', 'Proxies'),
-  ('Travertine', 'Proxies')
+  ('Paper', 'Paper'),
+  ('Purpur', 'Purpur'),
+  ('Purformance', 'Purformance'),
+  ('Spigot', 'Spigot'),
+  ('CraftBukkit', 'CraftBukkit'),
+  ('Tuinity', 'Tuinity'),
+  ('Airplane', 'Airplane'),
+  ('Folia', 'Folia'),
+  ('SpongeVanilla', 'SpongeVanilla'),
+  ('Glowstone', 'Glowstone'),
+  ('Fabric', 'Fabric'),
+  ('Forge', 'Forge'),
+  ('Crucible', 'Crucible'),
+  ('Cardboard', 'Cardboard'),
+  ('Arclight', 'Arclight'),
+  ('Mohist', 'Mohist'),
+  ('Magma', 'Magma'),
+  ('SpongeForge', 'SpongeForge'),
+  ('Waterfall', 'Waterfall'),
+  ('Velocity', 'Velocity'),
+  ('Bungeecord', 'Bungeecord'),
+  ('Travertine', 'Travertine')
 ]
 
 
@@ -43,7 +43,7 @@ def get_upload_to(instance, filename):
   return upload_to(instance, filename)
 
 class jar(models.Model):
-  title = models.CharField(max_length=50, unique=True, default=None)
+  title = models.CharField(max_length=50, unique=False, default=None)
   software=models.CharField(choices=Types, max_length=50)
   version=models.CharField(max_length=50)
   project=models.CharField(choices=SoftwareTypes, max_length=50)

@@ -6,14 +6,11 @@ import shutil
 
 app = FastAPI()
 
-api = APIRouter(tags=['ServerJars'])
+api = APIRouter(tags=['Upload'])
 
 
-@app.get("/hello")
-async def read_root():
-    return {"message": "Hello World"}
 
-@app.post('/upload/server')
+@app.post('/upload/servers')
 async def uploadServer(
   file: UploadFile,
   project: str,
