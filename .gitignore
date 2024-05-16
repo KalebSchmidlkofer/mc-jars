@@ -5,3 +5,5 @@ uploads
 db.sqlite3
 activate
 staticfiles/
+static
+*migrations

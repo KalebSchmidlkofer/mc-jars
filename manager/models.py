@@ -83,34 +83,46 @@ class jar(models.Model):
   
   def __str__(self):
     return self.title
+  class Meta:
+    verbose_name_plural = "Jars"
 
 class servers(models.Model):
   type=models.ForeignKey(jar, on_delete=models.CASCADE, related_name='Server')
   def __str__(self):
     return self.type.title
 
+  class Meta:
+    verbose_name_plural="servers"
 
 class bedrock(models.Model):
   type=models.ForeignKey(jar, on_delete=models.CASCADE, related_name='Bedrock')
   
   def __str__(self):
     return self.type.title
+  class Meta:
+    verbose_name_plural="bedrock"
 
 class modded(models.Model):
   type=models.ForeignKey(jar, on_delete=models.CASCADE, related_name='Modded')
   
   def __str__(self):
     return self.type.title
+  class Meta:
+    verbose_name_plural="modded"
 
 class vanilla(models.Model):
   type=models.ForeignKey(jar, on_delete=models.CASCADE, related_name='Vanilla')
   
   def __str__(self):
     return self.type.title
+  class Meta:
+    verbose_name_plural="vanilla"
 
 class proxies(models.Model):
   type=models.ForeignKey(jar, on_delete=models.CASCADE, related_name='Proxy')
   
   def __str__(self):
     return self.type.title
+  class Meta:
+    verbose_name_plural="proxies"
 
