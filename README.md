@@ -33,5 +33,8 @@ the same features and ease-of use. In order to do that I need a few simple thing
 namely
 
 - [ ] api
+  - [X] FastAPI setup
+  - [ ] Upload api
+  - [ ] Public api
 - [ ] Good looking Frontend
 - [ ] Fast, Efficient and Automated way to get new server jars uploaded to the website
