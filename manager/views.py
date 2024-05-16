@@ -1,17 +1,25 @@
 from django.shortcuts import render
-# from .models import jar, servers, modded, vanilla, bedrock, proxies, other
-# from .models import Types, SoftwareTypes
+from django.http import HttpResponse
+from .models import jar, servers, modded, vanilla, bedrock, proxies, other
+from django.core.files.uploadedfile import SimpleUploadedFile
 
-def uploadtoServer(request):
-  # if request.method == 'POST':
-    # serverInstance = servers.objects.create()
-    # serverInstance.project.title
-    # serverInstance.project.project='Server'
-    # serverInstance.project.version
-    # serverInstance.project.software
-    # serverInstance.project.buildnum
-    # serverInstance.project.posted
-    # serverInstance.project.experimental
-    # serverInstance.project.file
-  pass
+def uploadtoServer(file, filecontent, project, version, build):
+  file = SimpleUploadedFile(f'{project}-{version}-{build}.jar', filecontent)
+  jarInstance = jar.objects.create(
+    title=f'{project}-{version}',
+    project=project,
+    version=version,
+    software='Servers',
+    buildnum=build,
+    posted=True,  
+    experimental=False, 
+    file=file  
+  )
+
+  serverInstance = servers.objects.create(
+    project=jarInstance
+  )
+  jarInstance.save()
+  serverInstance.save()
+
 

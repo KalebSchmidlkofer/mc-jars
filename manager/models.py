@@ -37,7 +37,6 @@ SoftwareTypes = [
   ('Bungeecord', 'Proxies'),
   ('Travertine', 'Proxies')
 ]
-matched_software_types = []
 
 
 def get_upload_to(instance, filename):
@@ -45,9 +44,9 @@ def get_upload_to(instance, filename):
 
 class jar(models.Model):
   title = models.CharField(max_length=50, unique=True, default=None)
-  project=models.CharField(choices=Types, max_length=50)
+  software=models.CharField(choices=Types, max_length=50)
   version=models.CharField(max_length=50)
-  software=models.CharField(choices=SoftwareTypes, max_length=50)
+  project=models.CharField(choices=SoftwareTypes, max_length=50)
   buildnum=models.IntegerField(default=0)
   posted=models.BooleanField(default=True)
   experimental=models.BooleanField(default=False)
