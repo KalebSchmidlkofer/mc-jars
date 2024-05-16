@@ -39,19 +39,7 @@ SoftwareTypes = [
 
 
 def get_upload_to(instance, filename):
-  # Ensure that only allowed characters are included in the filename
-  filename = path.basename(filename)
-  
-  # Construct the upload path using safe directory joining method
-  upload_path = path.join(
-    instance.project,
-    instance.software,
-    filename
-  )
-  
-  # Return the sanitized upload path
-  return upload_path
-
+  return upload_to(instance, filename)
 
 class jar(models.Model):
   title = models.CharField(max_length=50, unique=True, default=None)
@@ -88,42 +76,56 @@ class jar(models.Model):
     verbose_name_plural = "Jars"
 
 class servers(models.Model):
-  type=models.ForeignKey(jar, on_delete=models.CASCADE, related_name='Server')
+  project=models.ForeignKey(jar, on_delete=models.CASCADE, related_name='Server')
   def __str__(self):
-    return self.type.title
+    return self.project.title
 
   class Meta:
     verbose_name_plural="servers"
 
 class bedrock(models.Model):
-  type=models.ForeignKey(jar, on_delete=models.CASCADE, related_name='Bedrock')
+  project=models.ForeignKey(jar, on_delete=models.CASCADE, related_name='Bedrock')
   
   def __str__(self):
-    return self.type.title
+    return self.project.title
   class Meta:
     verbose_name_plural="bedrock"
 
 class modded(models.Model):
-  type=models.ForeignKey(jar, on_delete=models.CASCADE, related_name='Modded')
+  project=models.ForeignKey(jar, on_delete=models.CASCADE, related_name='Modded')
   
   def __str__(self):
-    return self.type.title
+    return self.project.title
   class Meta:
     verbose_name_plural="modded"
 
 class vanilla(models.Model):
-  type=models.ForeignKey(jar, on_delete=models.CASCADE, related_name='Vanilla')
+  project=models.ForeignKey(jar, on_delete=models.CASCADE, related_name='Vanilla')
   
   def __str__(self):
-    return self.type.title
+    return self.project.title
   class Meta:
     verbose_name_plural="vanilla"
 
 class proxies(models.Model):
-  type=models.ForeignKey(jar, on_delete=models.CASCADE, related_name='Proxy')
+  project=models.ForeignKey(jar, on_delete=models.CASCADE, related_name='Proxy')
   
   def __str__(self):
-    return self.type.title
+    return self.project.title
   class Meta:
     verbose_name_plural="proxies"
 
+
+def upload_to(instance: jar, filename):
+  # Ensure that only allowed characters are included in the filename
+  filename = path.basename(filename)
+  
+  # Construct the upload path using safe directory joining method
+  upload_path = path.join(
+    instance.project,
+    instance.software,
+    filename
+  )
+  
+  # Return the sanitized upload path
+  return upload_path
