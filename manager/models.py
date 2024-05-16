@@ -44,7 +44,7 @@ def get_upload_to(instance, filename):
   
   # Construct the upload path using safe directory joining method
   upload_path = path.join(
-    instance.type,
+    instance.project,
     instance.software,
     filename
   )
@@ -67,6 +67,7 @@ class jar(models.Model):
   date_added=models.DateTimeField(auto_now=False, auto_now_add=True)
 
   def save(self, *args, **kwargs):
+    super().save(*args, **kwargs)
     # Calculate file size and convert it to a readable format
     if self.file:
       size = self.file.size
@@ -79,7 +80,7 @@ class jar(models.Model):
       else:
         self.file_size = f"{size / (1024 * 1024 * 1024):.2f} GB"
       self.file_hash=hashlib.md5(open(self.file.path, 'rb').read()).hexdigest()
-    super().save(*args, **kwargs)
+    super().save(update_fields=['file_size', 'file_hash'])
   
   def __str__(self):
     return self.title
