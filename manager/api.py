@@ -1,20 +1,36 @@
 # fastapi_app/api.py
-from fastapi import FastAPI, UploadFile, File, APIRouter
+from typing import Annotated
+from fastapi import FastAPI, UploadFile, File, APIRouter, Depends
+from fastapi.security import OAuth2PasswordBearer
 from .views import uploadtoModded, uploadtoServer, uploadtoOther, uploadtoProxy, uploadtoVanilla, uploadtoBedrock
 from asgiref.sync import sync_to_async
-import shutil
+from pydantic import BaseModel
 
+from django.contrib.auth.models import User
 app = FastAPI()
 
-api = APIRouter(tags=['Upload'])
+
+def get_current_user() -> User:
+    user = django.contrib.auth.get_user()
+    if not user.is_authenticated:
+        raise HTTPException(status_code=401, detail="User not authenticated")
+    return user
+
+class UserProfile(BaseModel):
+    username: str
+    email: str
 
 
+@app.get('/user', response_model=UserProfile)
+async def get_user_profile(current_user: User = Depends(get_current_user)):
+    return {"username": current_user.username, "email": current_user.email}
 
 @app.post('/upload/servers')
 async def uploadServer(
-  file: UploadFile,
-  project: str,
-  version: str,
+  # current_user: User = Depends(get_current_user),
+  file: UploadFile = '',
+  project: str = '',
+  version: str = '',
   build: int = 0,
 ):
   contents = await file.read()
@@ -24,9 +40,10 @@ async def uploadServer(
 
 @app.post('/upload/modded')
 async def uploadModded(
-  file: UploadFile,
-  project: str,
-  version: str,
+  # current_user: User = Depends(get_current_user),
+  file: UploadFile = '',
+  project: str = '',
+  version: str = '',
   build: int = 0,
 ):
   contents = await file.read()
@@ -36,9 +53,10 @@ async def uploadModded(
 
 @app.post('/upload/vanilla')
 async def uploadVanilla(
-  file: UploadFile,
-  project: str,
-  version: str,
+  # current_user: User = Depends(get_current_user),
+  file: UploadFile = '',
+  project: str = '',
+  version: str = '',
   build: int = 0,
 ):
   contents = await file.read()
@@ -48,9 +66,10 @@ async def uploadVanilla(
 
 @app.post('/upload/bedrock')
 async def uploadBedrock(
-  file: UploadFile,
-  project: str,
-  version: str,
+  # current_user: User = Depends(get_current_user),
+  file: UploadFile = '',
+  project: str = '',
+  version: str = '',
   build: int = 0,
 ):
   contents = await file.read()
@@ -58,11 +77,12 @@ async def uploadBedrock(
   await sync_to_async(uploadtoBedrock)(file=file,filecontent=contents, project=project, version=version, build=build)
   return {"filename": file.filename}
 
-@app.post('/upload/proxy')
+@app.post('/upload/proxies')
 async def uploadProxy(
-  file: UploadFile,
-  project: str,
-  version: str,
+  # current_user: User = Depends(get_current_user),
+  file: UploadFile = '',
+  project: str = '',
+  version: str = '',
   build: int = 0,
 ):
   contents = await file.read()
@@ -72,9 +92,10 @@ async def uploadProxy(
 
 @app.post('/upload/misc')
 async def uploadMisc(
-  file: UploadFile,
-  project: str,
-  version: str,
+  # current_user: User = Depends(get_current_user),
+  file: UploadFile = '',
+  project: str = '',
+  version: str = '',
   build: int = 0,
 ):
   contents = await file.read()

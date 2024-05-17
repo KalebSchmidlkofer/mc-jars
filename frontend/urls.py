@@ -21,4 +21,5 @@ from django.conf import settings
 from . import views
 
 urlpatterns = [
+  path('', views.go_home, name='home')
 ]
