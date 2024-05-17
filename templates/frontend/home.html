@@ -1,0 +1,259 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Homepage{% endblock title %}
+{% block content %}
+<main>
+    <div id="description">
+        <h2>About Our Service</h2>
+        <p>We provide a comprehensive collection of server jars for various platforms. Whether you are looking for proxies, modded servers, vanilla, bedrock, or other types, you can find and download them here.</p>
+    </div>
+    <nav>
+        <ul id="category-nav">
+            <li data-category="servers">Servers</li>
+            <li data-category="proxies">Proxies</li>
+            <li data-category="modded">Modded</li>
+            <li data-category="vanilla">Vanilla</li>
+            <li data-category="bedrock">Bedrock</li>
+            <li data-category="other">Other</li>
+        </ul>
+    </nav>
+    <section id="jars-list">
+        <!-- Servers Category -->
+        <div class="jar-entry" data-category="servers">
+            <h2>Paper v1.0</h2>
+            <p>Release Date: 2024-05-01</p>
+            <a href="path/to/paper.jar" download>Download</a>
+        </div>
+        <div class="jar-entry" data-category="servers">
+            <h2>Spigot v1.0</h2>
+            <p>Release Date: 2024-05-01</p>
+            <a href="path/to/spigot.jar" download>Download</a>
+        </div>
+        <div class="jar-entry" data-category="servers">
+            <h2>Purpur v1.0</h2>
+            <p>Release Date: 2024-05-01</p>
+            <a href="path/to/purpur.jar" download>Download</a>
+        </div>
+        <div class="jar-entry" data-category="servers">
+            <h2>Purformance v1.0</h2>
+            <p>Release Date: 2024-05-01</p>
+            <a href="path/to/purformance.jar" download>Download</a>
+        </div>
+
+        <!-- Proxies Category -->
+        <div class="jar-entry" data-category="proxies">
+            <h2>Proxy 1 v1.0</h2>
+            <p>Release Date: 2024-05-01</p>
+            <a href="path/to/proxy1.jar" download>Download</a>
+        </div>
+        <div class="jar-entry" data-category="proxies">
+            <h2>Proxy 2 v1.0</h2>
+            <p>Release Date: 2024-05-01</p>
+            <a href="path/to/proxy2.jar" download>Download</a>
+        </div>
+        <div class="jar-entry" data-category="proxies">
+            <h2>Proxy 3 v1.0</h2>
+            <p>Release Date: 2024-05-01</p>
+            <a href="path/to/proxy3.jar" download>Download</a>
+        </div>
+
+        <!-- Modded Category -->
+        <div class="jar-entry" data-category="modded">
+            <h2>Modded 1 v1.0</h2>
+            <p>Release Date: 2024-05-01</p>
+            <a href="path/to/modded1.jar" download>Download</a>
+        </div>
+        <div class="jar-entry" data-category="modded">
+            <h2>Modded 2 v1.0</h2>
+            <p>Release Date: 2024-05-01</p>
+            <a href="path/to/modded2.jar" download>Download</a>
+        </div>
+        <div class="jar-entry" data-category="modded">
+            <h2>Modded 3 v1.0</h2>
+            <main>
+              <div id="description">
+                  <h2>About Our Service</h2>
+                  <p>We provide a comprehensive collection of server jars for various platforms. Whether you are looking for proxies, modded servers, vanilla, bedrock, or other types, you can find and download them here.</p>
+              </div>
+              <nav>
+                  <ul id="category-nav">
+                      <li data-category="servers">Servers</li>
+                      <li data-category="proxies">Proxies</li>
+                      <li data-category="modded">Modded</li>
+                      <li data-category="vanilla">Vanilla</li>
+                      <li data-category="bedrock">Bedrock</li>
+                      <li data-category="other">Other</li>
+                  </ul>
+              </nav>
+              <section id="jars-list">
+                  <!-- Servers Category -->
+                  <div class="jar-entry" data-category="servers">
+                      <h2>Paper v1.0</h2>
+                      <p>Release Date: 2024-05-01</p>
+                      <a href="path/to/paper.jar" download>Download</a>
+                  </div>
+                  <div class="jar-entry" data-category="servers">
+                      <h2>Spigot v1.0</h2>
+                      <p>Release Date: 2024-05-01</p>
+                      <a href="path/to/spigot.jar" download>Download</a>
+                  </div>
+                  <div class="jar-entry" data-category="servers">
+                      <h2>Purpur v1.0</h2>
+                      <p>Release Date: 2024-05-01</p>
+                      <a href="path/to/purpur.jar" download>Download</a>
+                  </div>
+                  <div class="jar-entry" data-category="servers">
+                      <h2>Purformance v1.0</h2>
+                      <p>Release Date: 2024-05-01</p>
+                      <a href="path/to/purformance.jar" download>Download</a>
+                  </div>
+        
+                  <!-- Proxies Category -->
+                  <div class="jar-entry" data-category="proxies">
+                      <h2>Proxy 1 v1.0</h2>
+                      <p>Release Date: 2024-05-01</p>
+                      <a href="path/to/proxy1.jar" download>Download</a>
+                  </div>
+                  <div class="jar-entry" data-category="proxies">
+                      <h2>Proxy 2 v1.0</h2>
+                      <p>Release Date: 2024-05-01</p>
+                      <a href="path/to/proxy2.jar" download>Download</a>
+                  </div>
+                  <div class="jar-entry" data-category="proxies">
+                      <h2>Proxy 3 v1.0</h2>
+                      <p>Release Date: 2024-05-01</p>
+                      <a href="path/to/proxy3.jar" download>Download</a>
+                  </div>
+        
+                  <!-- Modded Category -->
+                  <div class="jar-entry" data-category="modded">
+                      <h2>Modded 1 v1.0</h2>
+                      <p>Release Date: 2024-05-01</p>
+                      <a href="path/to/modded1.jar" download>Download</a>
+                  </div>
+                  <div class="jar-entry" data-category="modded">
+                      <h2>Modded 2 v1.0</h2>
+                      <p>Release Date: 2024-05-01</p>
+                      <a href="path/to/modded2.jar" download>Download</a>
+                  </div>
+                  <div class="jar-entry" data-category="modded">
+                      <h2>Modded 3 v1.0</h2>
+                      <p>Release Date: 2024-05-01</p>
+                      <a href="path/to/modded3.jar" download>Download</a>
+                  </div>
+        
+                  <!-- Vanilla Category -->
+                  <div class="jar-entry" data-category="vanilla">
+                      <h2>Vanilla 1 v1.0</h2>
+                      <p>Release Date: 2024-05-01</p>
+                      <a href="path/to/vanilla1.jar" download>Download</a>
+                  </div>
+                  <div class="jar-entry" data-category="vanilla">
+                      <h2>Vanilla 2 v1.0</h2>
+                      <p>Release Date: 2024-05-01</p>
+                      <a href="path/to/vanilla2.jar" download>Download</a>
+                  </div>
+                  <div class="jar-entry" data-category="vanilla">
+                      <h2>Vanilla 3 v1.0</h2>
+                      <p>Release Date: 2024-05-01</p>
+                      <a href="path/to/vanilla3.jar" download>Download</a>
+                  </div>
+        
+                  <!-- Bedrock Category -->
+                  <div class="jar-entry" data-category="bedrock">
+                      <h2>Bedrock 1 v1.0</h2>
+                      <p>Release Date: 2024-05-01</p>
+                      <a href="path/to/bedrock1.jar" download>Download</a>
+                  </div>
+                  <div class="jar-entry" data-category="bedrock">
+                      <h2>Bedrock 2 v1.0</h2>
+                      <p>Release Date: 2024-05-01</p>
+                      <a href="path/to/bedrock2.jar" download>Download</a>
+                  </div>
+                  <div class="jar-entry" data-category="bedrock">
+                      <h2>Bedrock 3 v1.0</h2>
+                      <p>Release Date: 2024-05-01</p>
+                      <a href="path/to/bedrock3.jar" download>Download</a>
+                  </div>
+        
+                  <!-- Other Category -->
+                  <div class="jar-entry" data-category="other">
+                      <h2>Other 1 v1.0</h2>
+                      <p>Release Date: 2024-05-01</p>
+                      <a href="path/to/other1.jar" download>Download</a>
+                  </div>
+                  <div class="jar-entry" data-category="other">
+                      <h2>Other 2 v1.0</h2>
+                      <p>Release Date: 2024-05-01</p>
+                      <a href="path/to/other2.jar" download>Download</a>
+                  </div>
+                  <div class="jar-entry" data-category="other">
+                      <h2>Other 3 v1.0</h2>
+                      <p>Release Date: 2024-05-01</p>
+                      <a href="path/to/other3.jar" download>Download</a>
+                  </div>
+              </section>
+          </main>
+          <footer>
+              <p>&copy; 2024 Your Name or Company</p>
+          </footer>
+          <script src="{% static 'frontend/js/scripts.js' %}"></script>
+        </body>/div>
+
+        <!-- Vanilla Category -->
+        <div class="jar-entry" data-category="vanilla">
+            <h2>Vanilla 1 v1.0</h2>
+            <p>Release Date: 2024-05-01</p>
+            <a href="path/to/vanilla1.jar" download>Download</a>
+        </div>
+        <div class="jar-entry" data-category="vanilla">
+            <h2>Vanilla 2 v1.0</h2>
+            <p>Release Date: 2024-05-01</p>
+            <a href="path/to/vanilla2.jar" download>Download</a>
+        </div>
+        <div class="jar-entry" data-category="vanilla">
+            <h2>Vanilla 3 v1.0</h2>
+            <p>Release Date: 2024-05-01</p>
+            <a href="path/to/vanilla3.jar" download>Download</a>
+        </div>
+
+        <!-- Bedrock Category -->
+        <div class="jar-entry" data-category="bedrock">
+            <h2>Bedrock 1 v1.0</h2>
+            <p>Release Date: 2024-05-01</p>
+            <a href="path/to/bedrock1.jar" download>Download</a>
+        </div>
+        <div class="jar-entry" data-category="bedrock">
+            <h2>Bedrock 2 v1.0</h2>
+            <p>Release Date: 2024-05-01</p>
+            <a href="path/to/bedrock2.jar" download>Download</a>
+        </div>
+        <div class="jar-entry" data-category="bedrock">
+            <h2>Bedrock 3 v1.0</h2>
+            <p>Release Date: 2024-05-01</p>
+            <a href="path/to/bedrock3.jar" download>Download</a>
+        </div>
+
+        <!-- Other Category -->
+        <div class="jar-entry" data-category="other">
+            <h2>Other 1 v1.0</h2>
+            <p>Release Date: 2024-05-01</p>
+            <a href="path/to/other1.jar" download>Download</a>
+        </div>
+        <div class="jar-entry" data-category="other">
+            <h2>Other 2 v1.0</h2>
+            <p>Release Date: 2024-05-01</p>
+            <a href="path/to/other2.jar" download>Download</a>
+        </div>
+        <div class="jar-entry" data-category="other">
+            <h2>Other 3 v1.0</h2>
+            <p>Release Date: 2024-05-01</p>
+            <a href="path/to/other3.jar" download>Download</a>
+        </div>
+    </section>
+</main>
+<footer>
+  <p>&copy; 2024 Your Name or Company</p>
+</footer>
+<script src="{% static 'frontend/js/scripts.js' %}"></script>
+{% endblock content %}
