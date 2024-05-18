@@ -256,4 +256,262 @@
   <p>&copy; 2024 Your Name or Company</p>
 </footer>
 <script src="{% static 'frontend/js/scripts.js' %}"></script>
+{% endblock content %}{% extends 'base.html' %}
+{% load static %}
+{% block title %}Homepage{% endblock title %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Server Jars</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <a class="navbar-brand" href="#">Server Jars</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">API Docs</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container text-center mt-4">
+            <h1 class="display-4">Server Jars</h1>
+            <p class="lead">Download the latest server jars here!</p>
+        </div>
+    </header>
+    <main class="container">
+        <div id="description" class="text-center mt-4">
+            <h2>About Our Service</h2>
+            <p>We provide a comprehensive collection of server jars for various platforms. Whether you are looking for proxies, modded servers, vanilla, bedrock, or other types, you can find and download them here.</p>
+        </div>
+        <nav>
+            <ul id="category-nav" class="nav nav-pills justify-content-center mt-4">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#" data-category="servers">Servers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-category="proxies">Proxies</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-category="modded">Modded</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-category="vanilla">Vanilla</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-category="bedrock">Bedrock</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-category="other">Other</a>
+                </li>
+            </ul>
+        </nav>
+        <section id="jars-list" class="row mt-4">
+            <!-- Servers Category -->
+            <div class="col-md-4 jar-entry" data-category="servers">
+                <div class="card bg-dark text-white mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Paper v1.0</h5>
+                        <p class="card-text">Release Date: 2024-05-01</p>
+                        <a href="path/to/paper.jar" class="btn btn-primary" download>Download</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 jar-entry" data-category="servers">
+                <div class="card bg-dark text-white mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Spigot v1.0</h5>
+                        <p class="card-text">Release Date: 2024-05-01</p>
+                        <a href="path/to/spigot.jar" class="btn btn-primary" download>Download</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 jar-entry" data-category="servers">
+                <div class="card bg-dark text-white mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Purpur v1.0</h5>
+                        <p class="card-text">Release Date: 2024-05-01</p>
+                        <a href="path/to/purpur.jar" class="btn btn-primary" download>Download</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 jar-entry" data-category="servers">
+                <div class="card bg-dark text-white mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Purformance v1.0</h5>
+                        <p class="card-text">Release Date: 2024-05-01</p>
+                        <a href="path/to/purformance.jar" class="btn btn-primary" download>Download</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Proxies Category -->
+            <div class="col-md-4 jar-entry" data-category="proxies">
+                <div class="card bg-dark text-white mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Proxy 1 v1.0</h5>
+                        <p class="card-text">Release Date: 2024-05-01</p>
+                        <a href="path/to/proxy1.jar" class="btn btn-primary" download>Download</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 jar-entry" data-category="proxies">
+                <div class="card bg-dark text-white mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Proxy 2 v1.0</h5>
+                        <p class="card-text">Release Date: 2024-05-01</p>
+                        <a href="path/to/proxy2.jar" class="btn btn-primary" download>Download</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 jar-entry" data-category="proxies">
+                <div class="card bg-dark text-white mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Proxy 3 v1.0</h5>
+                        <p class="card-text">Release Date: 2024-05-01</p>
+                        <a href="path/to/proxy3.jar" class="btn btn-primary" download>Download</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modded Category -->
+            <div class="col-md-4 jar-entry" data-category="modded">
+                <div class="card bg-dark text-white mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Modded 1 v1.0</h5>
+                        <p class="card-text">Release Date: 2024-05-01</p>
+                        <a href="path/to/modded1.jar" class="btn btn-primary" download>Download</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 jar-entry" data-category="modded">
+                <div class="card bg-dark text-white mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Modded 2 v1.0</h5>
+                        <p class="card-text">Release Date: 2024-05-01</p>
+                        <a href="path/to/modded2.jar" class="btn btn-primary" download>Download</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 jar-entry" data-category="modded">
+                <div class="card bg-dark text-white mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Modded 3 v1.0</h5>
+                        <p class="card-text">Release Date: 2024-05-01</p>
+                        <a href="path/to/modded3.jar" class="btn btn-primary" download>Download</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vanilla Category -->
+            <div class="col-md-4 jar-entry" data-category="vanilla">
+                <div class="card bg-dark text-white mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Vanilla 1 v1.0</h5>
+                        <p class="card-text">Release Date: 2024-05-01</p>
+                        <a href="path/to/vanilla1.jar" class="btn btn-primary" download>Download</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 jar-entry" data-category="vanilla">
+                <div class="card bg-dark text-white mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Vanilla 2 v1.0</h5>
+                        <p class="card-text">Release Date: 2024-05-01</p>
+                        <a href="path/to/vanilla2.jar" class="btn btn-primary" download>Download</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 jar-entry" data-category="vanilla">
+                <div class="card bg-dark text-white mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Vanilla 3 v1.0</h5>
+                        <p class="card-text">Release Date: 2024-05-01</p>
+                        <a href="path/to/vanilla3.jar" class="btn btn-primary" download>Download</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bedrock Category -->
+            <div class="col-md-4 jar-entry" data-category="bedrock">
+                <div class="card bg-dark text-white mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Bedrock 1 v1.0</h5>
+                        <p class="card-text">Release Date: 2024-05-01</p>
+                        <a href="path/to/bedrock1.jar" class="btn btn-primary" download>Download</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 jar-entry" data-category="bedrock">
+                <div class="card bg-dark text-white mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Bedrock 2 v1.0</h5>
+                        <p class="card-text">Release Date: 2024-05-01</p>
+                        <a href="path/to/bedrock2.jar" class="btn btn-primary" download>Download</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 jar-entry" data-category="bedrock">
+                <div class="card bg-dark text-white mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Bedrock 3 v1.0</h5>
+                        <p class="card-text">Release Date: 2024-05-01</p>
+                        <a href="path/to/bedrock3.jar" class="btn btn-primary" download>Download</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other Category -->
+            <div class="col-md-4 jar-entry" data-category="other">
+                <div class="card bg-dark text-white mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Other 1 v1.0</h5>
+                        <p class="card-text">Release Date: 2024-05-01</p>
+                        <a href="path/to/other1.jar" class="btn btn-primary" download>Download</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 jar-entry" data-category="other">
+                <div class="card bg-dark text-white mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Other 2 v1.0</h5>
+                        <p class="card-text">Release Date: 2024-05-01</p>
+                        <a href="path/to/other2.jar" class="btn btn-primary" download>Download</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 jar-entry" data-category="other">
+                <div class="card bg-dark text-white mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Other 3 v1.0</h5>
+                        <p class="card-text">Release Date: 2024-05-01</p>
+                        <a href="path/to/other3.jar" class="btn btn-primary" download>Download</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="text-center mt-4 py-4 bg-dark text-white">
+        <p>&copy; 2024 Your Name or Company</p>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>
+
 {% endblock content %}
